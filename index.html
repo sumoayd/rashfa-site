@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>رشفة للمقاهي</title>
+<meta name="description" content="رشفة: نظام كاشير وشاشة باريستا للمقاهي في عُمان، يعمل دون إنترنت، مع منيو QR وولاء في محفظة الجوال.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_OM">
+<meta property="og:title" content="رشفة | نظام كاشير للمقاهي في عُمان">
+<meta property="og:description" content="رشفة: نظام كاشير وشاشة باريستا للمقاهي في عُمان، يعمل دون إنترنت، مع منيو QR وولاء في محفظة الجوال.">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0E4D4A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%230E4D4A'/%3E%3Cpath d='M9 15h18v9a9 9 0 0 1-18 0Z' fill='none' stroke='%23fff' stroke-width='3'/%3E%3Cpath d='M27 17h2.5a3.5 3.5 0 0 1 0 7H27' fill='none' stroke='%23fff' stroke-width='3'/%3E%3C/svg%3E">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<meta name="description" content="رشفة: نظام كاشير وشاشة باريستا للمقاهي في عُمان، يعمل دون إنترنت.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@600;800&family=Readex+Pro:wght@400;500;700&family=Reem+Kufi:wght@700&family=IBM+Plex+Sans+Arabic:wght@400&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+
+:root{
+  --bg:#FFFFFF;          
+  --surface:#F6F8F7;     
+  --ink:#14211F;
+  --muted:#5A6965;
+  --line:#D3DAD5;
+  --door:#0E4D4A;        
+  --door-ink:#F3F7F4;
+  --saffron:#C98A0E;     
+  --saffron-soft:#F6E7C4;
+  --paper:#FBFAF6;       
+  --paper-ink:#1E1E1E;
+  --stage:#0E4D4A;       
+  --stage-deep:#062B29;
+  --wa:#1C8D4F;
+  --wa-ink:#FFFFFF;
+  --f-display:"Alexandria","Readex Pro",system-ui,sans-serif;
+  --f-body:"Readex Pro",system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;
+  --f-receipt-head:"Reem Kufi","IBM Plex Sans Arabic",system-ui,sans-serif;  
+  --f-receipt-body:"IBM Plex Sans Arabic",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --s1:.875rem;--s2:1rem;--s3:1.25rem;--s4:1.6rem;--s5:2.2rem;--s6:clamp(2.2rem,5.5vw,3.6rem);
+}
+:root[data-theme="dark"]{
+  --stage:#12423F;--stage-deep:#071413;
+  --bg:#0E1716;--surface:#15211F;--ink:#E7EEEA;--muted:#9AAAA5;--line:#26352F;
+  --door:#5FB3A9;--door-ink:#0B1413;--saffron:#E9B44C;--saffron-soft:#3A2E14;
+  --paper:#F4F2EC;--paper-ink:#1E1E1E;--wa:#2FB36A;--wa-ink:#06140C;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:var(--s2);line-height:1.75}
+.page{direction:rtl;text-align:right}
+.wrap{max-width:1120px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);font-weight:800;line-height:1.3;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--saffron);outline-offset:3px;border-radius:6px}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
+
+
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-size:var(--s4);color:var(--door);text-decoration:none}
+.brand svg{width:34px;height:34px}
+.nav-links{display:flex;gap:22px;font-size:var(--s1);color:var(--muted)}
+.nav-links a{text-decoration:none}
+.nav-links a:hover{color:var(--ink)}
+
+
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-body);font-weight:700;font-size:var(--s2);padding:14px 22px;border-radius:999px;text-decoration:none;border:2px solid transparent;transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-wa{background:var(--wa);color:var(--wa-ink)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:transparent}
+.btn svg{width:20px;height:20px;flex:none}
+
+
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-block:28px 64px}
+.hero > *{min-width:0}
+.eyebrow{display:inline-block;font-size:var(--s1);font-weight:700;color:var(--door);background:color-mix(in srgb,var(--door) 12%,transparent);padding:4px 12px;border-radius:999px;margin-bottom:18px}
+.hero h1{font-size:var(--s6);color:var(--ink);line-height:1.35}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.theme-btn{width:46px;height:46px;flex:none;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:background .15s ease}
+.theme-btn:hover{background:var(--line)}
+.theme-btn svg{width:20px;height:20px}
+.theme-btn .sun{display:none}
+:root[data-theme="dark"] .theme-btn .sun{display:block}
+:root[data-theme="dark"] .theme-btn .moon{display:none}
+.hero h1 em{font-style:normal;color:var(--door)}
+.lead{font-size:var(--s3);color:var(--muted);margin-top:18px;max-width:34em}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.phone-line{margin-top:14px;font-size:var(--s1);color:var(--muted)}
+.facts{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:28px;padding:0;list-style:none;font-size:var(--s1);color:var(--muted)}
+.facts li{display:flex;align-items:center;gap:8px}
+.facts li::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--saffron)}
+
+
+.receipt-stage{position:relative;overflow:hidden;display:flex;justify-content:center;align-items:center;padding:clamp(32px,6vw,56px) 20px;border-radius:28px;
+  background:radial-gradient(110% 80% at 85% 0%,color-mix(in srgb,var(--stage) 75%,#4FB0A2) 0%,var(--stage) 50%,var(--stage-deep) 100%)}
+.receipt-stage::before{content:"";position:absolute;width:320px;height:320px;inset-inline-start:-90px;bottom:-140px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--saffron) 45%,transparent),transparent 70%);pointer-events:none}
+.receipt-stage::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1px);background-size:18px 18px;pointer-events:none}
+.receipt-stage .receipt{position:relative;z-index:1}
+.receipt{width:100%;max-width:330px;background:var(--paper);color:var(--paper-ink);font-family:var(--f-mono);font-size:13px;line-height:1.6;padding:26px 22px 30px;transform:rotate(-2deg);box-shadow:0 40px 70px -24px rgba(0,0,0,.55),0 2px 0 rgba(0,0,0,.05);
+  -webkit-mask:radial-gradient(circle 6px at 8px 100%,transparent 98%,#000) -8px 0/16px 100% repeat-x;mask:radial-gradient(circle 6px at 8px 100%,transparent 98%,#000) -8px 0/16px 100% repeat-x}
+@media (prefers-reduced-motion:no-preference){.receipt{animation:print .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes print{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}}
+.r-head{text-align:center;font-family:var(--f-receipt-head);font-size:20px;letter-spacing:.02em}
+.r-sub{text-align:center;font-family:var(--f-receipt-body);font-size:12px;color:#555}
+.r-rule{border:0;border-top:1px dashed #9a9a9a;margin:12px 0}
+.r-row{display:flex;justify-content:space-between;gap:12px}
+.r-row span:first-child{font-family:var(--f-receipt-body)}
+.r-total{font-weight:600;font-size:15px}
+.r-qr{display:flex;gap:12px;align-items:center;margin-top:14px}
+.r-qr canvas{width:76px;height:76px;image-rendering:pixelated;flex:none}
+.r-qr p{font-family:var(--f-receipt-body);font-size:11px;color:#555;line-height:1.5}
+.r-foot{text-align:center;font-family:var(--f-receipt-body);font-size:12px;margin-top:12px}
+
+
+section{padding-block:56px}
+.sec-head{max-width:40em;margin-bottom:32px}
+.sec-head h2{font-size:var(--s5)}
+.sec-head p{color:var(--muted);margin-top:10px;font-size:var(--s3)}
+.band{background:var(--surface);border-block:1px solid var(--line)}
+
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 36px}
+.feat{min-width:0;display:grid;gap:6px;align-content:start}
+.feat .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--door) 12%,transparent);color:var(--door);margin-bottom:6px}
+.feat .ic svg{width:22px;height:22px}
+.feat h3{font-size:var(--s3)}
+.feat p{color:var(--muted)}
+
+
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:step}
+.flow li{list-style:none;min-width:0;padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--bg)}
+.flow li b{display:block;font-family:var(--f-display);font-size:var(--s3);margin-bottom:4px}
+.flow li b::before{counter-increment:step;content:counter(step);font-family:var(--f-mono);font-size:var(--s1);color:var(--saffron);margin-inline-end:8px}
+.flow li span{color:var(--muted);font-size:var(--s1)}
+.flow{padding:0;margin:0}
+
+
+.deadline{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:var(--door);color:var(--door-ink);border-radius:24px;padding:40px}
+.deadline > *{min-width:0}
+.deadline h2{font-size:var(--s5)}
+.deadline p{opacity:.85;margin-top:12px}
+.dates{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.dates li{display:flex;gap:16px;align-items:baseline;border-bottom:1px solid color-mix(in srgb,var(--door-ink) 25%,transparent);padding-bottom:12px}
+.dates .num{font-size:var(--s4);font-weight:600;min-width:6.5ch}
+.dates span:last-child{opacity:.9}
+.src{font-size:12px;opacity:.7;margin-top:14px}
+.src a{text-underline-offset:3px}
+
+
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.plan{min-width:0;display:flex;flex-direction:column;gap:14px;padding:26px;border:1px solid var(--line);border-radius:18px;background:var(--surface)}
+.plan.pick{border:2px solid var(--door)}
+.plan .tag{align-self:flex-start;font-size:12px;font-weight:700;color:var(--door);background:color-mix(in srgb,var(--door) 12%,transparent);padding:2px 10px;border-radius:999px}
+.plan h3{font-size:var(--s4)}
+.price{display:flex;align-items:baseline;gap:8px}
+.price .num{font-size:var(--s5);font-weight:600}
+.price small{color:var(--muted)}
+.yearly{font-size:var(--s1);color:var(--muted)}
+.plan ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:var(--s1)}
+.plan li{display:flex;gap:8px}
+.plan li::before{content:"✓";color:var(--door);font-weight:700}
+.plan .btn{margin-top:auto;justify-content:center}
+.offer{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;background:var(--saffron-soft);border-radius:16px;padding:18px 22px}
+.offer p{font-weight:500}
+.note{font-size:var(--s1);color:var(--muted);margin-top:12px}
+
+
+.faq{display:grid;gap:10px;max-width:780px}
+.faq details{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:16px 20px}
+.faq summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--f-mono);color:var(--door)}
+.faq details[open] summary::after{content:"−"}
+.faq details p{color:var(--muted);margin-top:10px}
+
+
+.closing{text-align:center;display:grid;justify-items:center;gap:16px}
+.closing h2{font-size:var(--s5)}
+.closing p{color:var(--muted)}
+.copy-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;font-size:var(--s1);color:var(--muted)}
+.copy-btn{font:inherit;font-weight:700;color:var(--door);background:transparent;border:1px solid var(--line);border-radius:999px;padding:4px 12px;cursor:pointer}
+footer{padding-block:28px;border-top:1px solid var(--line);color:var(--muted);font-size:var(--s1)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+
+
+.wa-float{position:fixed;left:calc(18px + env(safe-area-inset-left,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:10;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:var(--wa);color:var(--wa-ink);box-shadow:0 10px 24px -8px rgba(0,0,0,.35);text-decoration:none}
+.wa-float svg{width:30px;height:30px}
+
+
+.sheet-back{position:fixed;inset:0;z-index:20;background:rgba(8,20,18,.55);display:grid;place-items:center;padding:16px}
+.sheet{direction:rtl;text-align:right;width:100%;max-width:420px;background:var(--surface);color:var(--ink);border-radius:22px;padding:24px;display:grid;gap:14px;box-shadow:0 30px 80px -20px rgba(0,0,0,.5)}
+.sheet h3{font-size:var(--s4)}
+.sheet p{color:var(--muted);font-size:var(--s1)}
+.sheet .btn{justify-content:center}
+.sheet-qr{display:flex;gap:16px;align-items:center;border:1px solid var(--line);border-radius:16px;padding:14px;background:var(--bg)}
+.sheet-qr #wa-qr{width:120px;height:120px;flex:none;background:#fff;border-radius:10px;padding:6px;display:grid;place-items:center}
+.sheet-qr #wa-qr img,.sheet-qr #wa-qr svg{width:100%;height:100%}
+.sheet-close{justify-self:start;font:inherit;font-weight:700;background:transparent;border:0;color:var(--muted);cursor:pointer;padding:4px 0}
+.sheet-msg{font-size:var(--s1);background:var(--bg);border-radius:12px;padding:10px 12px;color:var(--ink)}
+
+
+.value{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:18px;background:var(--surface);overflow:hidden}
+.value div{min-width:0;padding:18px 20px;border-inline-start:1px solid var(--line)}
+.value div:first-child{border-inline-start:0}
+.value b{display:block;font-family:var(--f-display);font-size:var(--s4);color:var(--door)}
+.value span{font-size:var(--s1);color:var(--muted)}
+
+
+.demo{display:grid;grid-template-columns:1fr 1.2fr;gap:20px;align-items:stretch}
+.demo > *{min-width:0}
+.panel{border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:18px;display:flex;flex-direction:column;gap:12px}
+.panel-top{display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:700}
+.net{font:inherit;font-size:var(--s1);font-weight:700;border-radius:999px;padding:6px 14px;cursor:pointer;border:1px solid var(--line);background:var(--bg);color:var(--ink);display:inline-flex;gap:8px;align-items:center}
+.net i{width:9px;height:9px;border-radius:50%;background:var(--wa)}
+.net[aria-pressed="true"] i{background:#C0392B}
+.menu-btns{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.menu-btns button{font:inherit;text-align:right;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:14px;padding:12px 14px;cursor:pointer;display:flex;justify-content:space-between;gap:8px;transition:transform .12s ease,border-color .12s ease}
+.menu-btns button:hover{border-color:var(--door)}
+.menu-btns button:active{transform:scale(.97)}
+.demo-status{font-size:var(--s1);color:var(--muted);min-height:1.75em}
+.kds{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;align-content:start;min-height:180px}
+.ticket{border-radius:12px;padding:10px 12px;background:var(--bg);border-top:5px solid var(--wa);display:grid;gap:2px;font-size:var(--s1)}
+.ticket b{font-family:var(--f-display);font-size:var(--s2)}
+.ticket.warn{border-top-color:var(--saffron)}
+.ticket.late{border-top-color:#C0392B}
+.ticket .t{font-family:var(--f-mono);color:var(--muted)}
+.ticket button{font:inherit;font-size:12px;font-weight:700;margin-top:6px;border:0;border-radius:8px;padding:6px;background:var(--door);color:var(--door-ink);cursor:pointer}
+.ticket.off{outline:2px dashed var(--saffron);outline-offset:-2px}
+.kds-empty{grid-column:1/-1;color:var(--muted);font-size:var(--s1);align-self:center;text-align:center;padding:30px 0}
+@media (prefers-reduced-motion:no-preference){.ticket{animation:pop .35s cubic-bezier(.2,.9,.3,1.3) both}@keyframes pop{from{transform:scale(.85);opacity:.3}}}
+
+
+.proof{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.proof div{min-width:0;display:grid;gap:4px;align-content:start;padding-top:14px;border-top:2px solid var(--door)}
+.proof b{font-family:var(--f-display);font-size:var(--s3)}
+.proof span{color:var(--muted);font-size:var(--s1)}
+
+
+.afford{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;margin-bottom:28px;padding:22px 26px;border-radius:18px;background:var(--surface);border:1px solid var(--line)}
+.afford .big{font-family:var(--f-display);font-size:clamp(2.4rem,6vw,3.4rem);color:var(--door);line-height:1}
+.afford .big small{font-size:var(--s2);color:var(--muted);font-family:var(--f-body)}
+.afford p{min-width:0}
+.afford strong{color:var(--ink)}
+.perday{font-size:var(--s1);color:var(--door);font-weight:700}
+
+@media (max-width:900px){
+  .demo{grid-template-columns:1fr}
+  .value,.proof{grid-template-columns:repeat(2,1fr)}
+  .value div:nth-child(3){border-inline-start:0}
+  .value div:nth-child(n+3){border-top:1px solid var(--line)}
+  .afford{grid-template-columns:1fr;gap:10px}
+  .hero{grid-template-columns:1fr;gap:36px}
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .flow{grid-template-columns:repeat(2,1fr)}
+  .deadline{grid-template-columns:1fr;padding:28px}
+  .price-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+@media (max-width:560px){
+  .feat-grid{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr}
+  .receipt{transform:none}
+}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.7-.3Z"/></symbol>
+</svg>
+
+<div class="page" dir="rtl" lang="ar">
+<header class="wrap nav">
+  <a class="brand" href="#top" aria-label="رشفة">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 14h20v10a10 10 0 0 1-20 0Z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M28 16h3a4 4 0 0 1 0 8h-3" fill="none" stroke="currentColor" stroke-width="3"/><path d="M14 5c-2 2 2 3 0 6M20 5c-2 2 2 3 0 6" fill="none" stroke="var(--saffron)" stroke-width="2.4" stroke-linecap="round"/></svg>
+    رشفة
+  </a>
+  <nav class="nav-links" aria-label="أقسام الصفحة">
+    <a href="#features">المميزات</a>
+    <a href="#fawtara">الفوترة الإلكترونية</a>
+    <a href="#pricing">الأسعار</a>
+    <a href="#faq">أسئلة</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="theme-btn" id="theme-btn" type="button" aria-label="تفعيل الوضع الداكن" title="الوضع الداكن">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+    <a class="btn btn-wa" data-wa="hero" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>واتساب</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <span class="eyebrow">مصمّم لمقاهي عُمان</span>
+      <h1>الكاشير يبيع، والباريستا يحضّر، <em>حتى لو انقطع الإنترنت.</em></h1>
+      <p class="lead">رشفة نظام نقاط بيع وشاشة تحضير للمقاهي. يحسب بالريال والبيسة، ويطبع الفاتورة الضريبية مع QR، ويعرّفك كم تربح في كل كوب.</p>
+      <div class="cta-row">
+        <a class="btn btn-wa" data-wa="hero-main" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>اطلب عرضاً مجانياً على واتساب</a>
+        <a class="btn btn-ghost" href="#features">شوف المميزات</a>
+      </div>
+      <p class="phone-line">أو راسلنا مباشرة على الرقم <span class="num" id="phone-hero">+968 7228 8511</span></p>
+      <ul class="facts">
+        <li>ويندوز وماك وآيباد</li>
+        <li>طابعات حرارية ESC/POS</li>
+        <li>بياناتك مشفّرة على جهازك</li>
+      </ul>
+    </div>
+
+    <div class="receipt-stage" aria-label="مثال لفاتورة مطبوعة من رشفة">
+      <div class="receipt">
+        <div class="r-head">مقهى الزعفران</div>
+        <div class="r-sub">القرم، مسقط · الرقم الضريبي <span class="num">OM1100000000</span></div>
+        <hr class="r-rule">
+        <div class="r-row"><span>طلب سيارة · لوحة ٤٥٢١</span><span class="num">#0187</span></div>
+        <hr class="r-rule">
+        <div class="r-row"><span>لاتيه مختص، حليب شوفان</span><span class="num">1.800</span></div>
+        <div class="r-row"><span>كرك</span><span class="num">0.300</span></div>
+        <div class="r-row"><span>كيكة زعفران</span><span class="num">1.200</span></div>
+        <hr class="r-rule">
+        <div class="r-row"><span>المجموع قبل الضريبة</span><span class="num">3.300</span></div>
+        <div class="r-row"><span>ضريبة القيمة المضافة ٥٪</span><span class="num">0.165</span></div>
+        <div class="r-row r-total"><span>الإجمالي (ر.ع)</span><span class="num">3.465</span></div>
+        <div class="r-row"><span>الدفع</span><span>ثواني</span></div>
+        <div class="r-qr">
+          <canvas id="qr" width="25" height="25" aria-hidden="true"></canvas>
+          <p>رمز QR للفاتورة الضريبية: اسم البائع، الرقم الضريبي، الوقت، الإجمالي، الضريبة.</p>
+        </div>
+        <div class="r-foot">نقاطك: ٧ من ١٠ · مشروبك القادم علينا</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="value">
+      <div><b>يوم واحد</b><span>من التركيب إلى أول فاتورة</span></div>
+      <div><b>نصف ساعة</b><span>ويتقنه الكاشير</span></div>
+      <div><b>شهران مجاناً</b><span>لأول 10 مقاهٍ</span></div>
+      <div><b>600 بيسة</b><span>في اليوم للباقة القياسية</span></div>
+    </div>
+  </div>
+
+  <section id="demo">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>جرّبه بنفسك الآن</h2>
+        <p>اضغط على أي مشروب، وشوف الطلب يوصل لشاشة الباريستا. بعدها اقطع الإنترنت وكمّل البيع.</p>
+      </div>
+      <div class="demo">
+        <div class="panel" aria-label="الكاشير التجريبي">
+          <div class="panel-top"><span>الكاشير</span>
+            <button class="net" id="net" type="button" aria-pressed="false"><i></i><span id="net-label">الإنترنت متصل</span></button>
+          </div>
+          <div class="menu-btns">
+            <button type="button" data-item="لاتيه مختص" data-price="1.800"><span>لاتيه مختص</span><span class="num">1.800</span></button>
+            <button type="button" data-item="كرك" data-price="0.300"><span>كرك</span><span class="num">0.300</span></button>
+            <button type="button" data-item="V60 إثيوبي" data-price="2.200"><span>V60 إثيوبي</span><span class="num">2.200</span></button>
+            <button type="button" data-item="سبانش لاتيه مثلج" data-price="1.900"><span>سبانش لاتيه مثلج</span><span class="num">1.900</span></button>
+          </div>
+          <div class="demo-status" id="demo-status" aria-live="polite">جاهز لأول طلب.</div>
+        </div>
+        <div class="panel" aria-label="شاشة الباريستا التجريبية">
+          <div class="panel-top"><span>شاشة الباريستا</span><span class="num" id="sales">0.000 ر.ع</span></div>
+          <div class="kds" id="kds"><div class="kds-empty">الطلبات تظهر هنا.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="features">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>كل ما يحتاجه المقهى في نظام واحد</h2>
+        <p>من أول طلب في الصباح إلى إغلاق الوردية وتقرير الأرباح.</p>
+      </div>
+      <div class="feat-grid">
+        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8.5a15 15 0 0 1 20 0M5.5 12a10 10 0 0 1 13 0M9 15.5a5 5 0 0 1 6 0"/><path d="M3 3l18 18"/></svg></div><h3>يعمل دون إنترنت</h3><p>البيع والطباعة وشاشة الباريستا وإغلاق الوردية تشتغل كلها حتى لو انقطع الخط.</p></div>
+        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 9h4M7 13h7"/><circle cx="17" cy="10" r="1.5" fill="currentColor"/></svg></div><h3>شاشة الباريستا</h3><p>الطلبات تصل فوراً بألوان تتغير مع التأخير، وتنطبع ملصقات الأكواب بالعربي.</p></div>
+        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 18h2M18 14h2"/></svg></div><h3>منيو QR وطلب السيارة</h3><p>الزبون يطلب من الطاولة أو من سيارته ويدفع عبر ثواني، والطلب يوصل للبار مباشرة.</p></div>
+        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg></div><h3>ولاء في محفظة الجوال</h3><p>بطاقة نقاط في Apple Wallet وGoogle Wallet وSamsung Wallet، والنظام يتذكر "مشروبي المعتاد".</p></div>
+        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>تكلفة الكوب وربحه</h3><p>المخزون ينقص من الوصفة مع كل بيع، وتشوف الربح الفعلي بعد التكلفة والتالف.</p></div>
+        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M12 17v4M4 12H2M22 12h-2"/><circle cx="12" cy="12" r="5"/></svg></div><h3>تنبؤ بالنفاد</h3><p>ينبهك قبل ما يخلص الحليب أو البن وقت الذروة، ويجهّز أمر الشراء للمورّد.</p></div>
+        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div><h3>طلب صوتي بالعربي</h3><p>الكاشير يقول الطلب والنظام يكتبه، ويقترح إضافات ترفع قيمة الفاتورة.</p></div>
+        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><h3>صلاحيات وPIN</h3><p>الإلغاء والاسترداد وفتح الدرج تحتاج موافقتك، وكل عملية مسجلة باسم من نفّذها.</p></div>
+        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>محاسبة وفروع</h3><p>قيود وبنوك ورواتب وتقارير بالريال، ومزامنة بين الفروع مع نسخ احتياطي تلقائي.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>سعر في متناول كل مقهى، وجودة أنظمة الشركات الكبيرة</h2>
+        <p>نفس معايير الأنظمة اللي تستخدمها السلاسل، بسعر يناسب المقهى الصغير.</p>
+      </div>
+      <div class="proof">
+        <div><b>كل بيسة محسوبة</b><span>المبالغ تُحفظ بالبيسة بدقة كاملة، بدون فروقات تقريب في الصندوق.</span></div>
+        <div><b>تشفير كامل</b><span>قاعدة البيانات مشفّرة على جهازك، ونسخ احتياطي تلقائي كل يوم.</span></div>
+        <div><b>سجل لا يُمحى</b><span>كل إلغاء وخصم وفتح درج مسجّل باسم من نفّذه ووقته.</span></div>
+        <div><b>مختبر قبل كل إصدار</b><span>الحسابات المالية والضريبة والمخزون عليها اختبارات آلية.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="sec-head"><h2>من الطلب إلى الكوب</h2></div>
+      <ol class="flow">
+        <li><b>الطلب</b><span>من الكاشير، أو منيو QR على الطاولة، أو من السيارة.</span></li>
+        <li><b>البار</b><span>يظهر على شاشة الباريستا وينطبع ملصق الكوب.</span></li>
+        <li><b>الدفع</b><span>نقداً أو بطاقة أو ثواني، وتنطبع الفاتورة مع QR الضريبي.</span></li>
+        <li><b>الأرقام</b><span>ينقص المخزون، وتُضاف نقاط الولاء، ويتحدّث تقرير الربح.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="fawtara">
+    <div class="wrap">
+      <div class="deadline">
+        <div>
+          <h2>الفوترة الإلكترونية (Fawtara) قادمة</h2>
+          <p>قرار جهاز الضرائب رقم 189/2026 يُلزم المسجلين في ضريبة القيمة المضافة بالفاتورة الإلكترونية. رشفة يطبع اليوم فاتورة ضريبية مع QR، ونحدّثه لمتطلبات Fawtara النهائية قبل موعدك.</p>
+          <p class="src">المصدر: <a href="https://www.comarch.com/trade-and-services/data-management/legal-regulation-changes/oman-revises-mandatory-e-invoicing-implementation-timeline/" target="_blank" rel="noopener">ملخص الجدول الزمني المعدّل</a></p>
+        </div>
+        <ul class="dates">
+          <li><span class="num">1/4/2027</span><span>من تتجاوز توريداته السنوية 5 ملايين ر.ع</span></li>
+          <li><span class="num">1/10/2027</span><span>بقية المسجلين في الضريبة، ومنهم أغلب المقاهي</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="pricing">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>أسعار تناسب كل مقهى</h2>
+        <p>من الكشك الصغير إلى السلسلة. سعر لكل فرع، والدفع السنوي يوفّر شهرين.</p>
+      </div>
+      <div class="afford">
+        <div class="big"><span class="num">0.600</span> <small>ر.ع في اليوم</small></div>
+        <p>هذا سعر الباقة القياسية، يعني <strong>بسعر كوبين كرك يومياً</strong> تحصل على كاشير وشاشة باريستا ومنيو QR وبطاقة ولاء. ويكفي أن يمنع فاتورة ملغاة واحدة بدون علمك حتى يغطي قيمته.</p>
+      </div>
+      <div class="price-grid">
+        <div class="plan">
+          <h3>القياسي</h3>
+          <div class="price"><span class="num">18</span><small>ر.ع / شهرياً</small></div>
+          <div class="yearly">أو <span class="num">180</span> ر.ع سنوياً</div>
+          <div class="perday">600 بيسة في اليوم، وأقل مع الدفع السنوي</div>
+          <ul><li>كاشير وشاشة باريستا</li><li>منيو QR وطلب السيارة</li><li>بطاقة ولاء</li><li>تقارير المبيعات والوردية</li></ul>
+          <a class="btn btn-ghost" data-wa="standard" href="#" target="_blank" rel="noopener">أبغى القياسي</a>
+        </div>
+        <div class="plan pick">
+          <span class="tag">الأنسب لأغلب المقاهي</span>
+          <h3>الاحترافي</h3>
+          <div class="price"><span class="num">30</span><small>ر.ع / شهرياً</small></div>
+          <div class="yearly">أو <span class="num">300</span> ر.ع سنوياً</div>
+          <div class="perday">ريال واحد في اليوم</div>
+          <ul><li>كل ما في القياسي</li><li>مخزون ووصفات وتكلفة الكوب</li><li>مشتريات ومحاسبة</li><li>ولاء في محفظة الجوال</li><li>طلب صوتي واقتراحات بيع</li></ul>
+          <a class="btn btn-wa" data-wa="pro" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>أبغى الاحترافي</a>
+        </div>
+        <div class="plan">
+          <h3>المؤسسي</h3>
+          <div class="price"><span class="num" style="font-size:var(--s4)">حسب الفروع</span></div>
+          <div class="yearly">عرض سعر خلال يوم عمل</div>
+          <ul><li>كل ما في الاحترافي</li><li>فروع متعددة ومزامنة</li><li>نسخ احتياطي سحابي</li><li>دعم بأولوية</li></ul>
+          <a class="btn btn-ghost" data-wa="enterprise" href="#" target="_blank" rel="noopener">اطلب عرض سعر</a>
+        </div>
+      </div>
+      <div class="offer">
+        <p>عرض الإطلاق لأول 10 مقاهٍ: شهران مجاناً، والتركيب والتدريب علينا.</p>
+        <a class="btn btn-wa" data-wa="offer" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>احجز مكانك</a>
+      </div>
+      <p class="note">التركيب والتدريب خارج العرض: <span class="num">50</span> ر.ع مرة واحدة. الأسعار قبل ضريبة القيمة المضافة.</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head"><h2>أسئلة أصحاب المقاهي</h2></div>
+      <div class="faq">
+        <details><summary>هل أحتاج أجهزة جديدة؟</summary><p>غالباً لا. رشفة يعمل على جهاز ويندوز أو ماك، والآيباد والجوال يصيرون شاشات للباريستا والزبون. ويطبع على الطابعات الحرارية المعروفة مثل Epson وXprinter.</p></details>
+        <details><summary>وش يصير إذا انقطع الإنترنت؟</summary><p>ولا شيء. البيع والطباعة وشاشة الباريستا تشتغل على شبكة المقهى الداخلية، والمزامنة ترجع لحالها لما يرجع الخط. الدفع الإلكتروني فقط يحتاج إنترنت.</p></details>
+        <details><summary>وين تنحفظ بياناتي؟</summary><p>على جهازك، في قاعدة بيانات مشفّرة، مع نسخ احتياطي تلقائي. يمكنك تفعيل نسخة سحابية إضافية إذا حبيت.</p></details>
+        <details><summary>كم يحتاج الموظف عشان يتعلمه؟</summary><p>حوالي نصف ساعة للكاشير. التركيب وإدخال المنيو وربط الطابعات علينا.</p></details>
+        <details><summary>أقدر أجرّبه قبل ما أدفع؟</summary><p>نعم. أول 10 مقاهٍ تحصل على شهرين مجاناً، ولا تدفع إلا إذا قررت تكمل.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap closing">
+      <h2>نمرّ على مقهاك ونوريك النظام في 15 دقيقة</h2>
+      <p>مسقط وما حولها، والعرض مجاني.</p>
+      <a class="btn btn-wa" data-wa="closing" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>تواصل على واتساب</a>
+      <div class="copy-row">
+        <span>الرقم: <span class="num" id="phone-copy">+968 7228 8511</span></span>
+        <button class="copy-btn" id="copy-phone" type="button">نسخ الرقم</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>رشفة · نظام المقاهي في عُمان</span>
+    <span>واتساب <span class="num">+968 7228 8511</span></span>
+  </div>
+</footer>
+
+<a class="wa-float" data-wa="float" href="#" target="_blank" rel="noopener" aria-label="تواصل معنا على واتساب"><svg aria-hidden="true"><use href="#wa"/></svg></a>
+
+<div class="sheet-back" id="sheet" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+    <button class="sheet-close" id="sheet-close" type="button">إغلاق ✕</button>
+    <h3 id="sheet-title">كلّمنا على واتساب</h3>
+    <div class="sheet-msg" id="sheet-msg"></div>
+    <a class="btn btn-wa" id="wa-app" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>افتح واتساب</a>
+    <a class="btn btn-ghost" id="wa-web" href="#" target="_blank" rel="noopener">واتساب ويب (من الكمبيوتر)</a>
+    <div class="sheet-qr" id="sheet-qr">
+      <div id="wa-qr" aria-label="رمز QR لفتح المحادثة"></div>
+      <p>أو صوّر الرمز بكاميرا جوالك، وتفتح المحادثة مباشرة.</p>
+    </div>
+    <div class="copy-row" style="justify-content:flex-start">
+      <span>الرقم: <span class="num">+968 7228 8511</span></span>
+      <button class="copy-btn" id="copy-phone-2" type="button">نسخ الرقم</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+
+<script>
+(function(){
+  var NUMBER = "96872288511";
+  var MESSAGES = {
+    "standard":"السلام عليكم، أبغى أعرف أكثر عن باقة رشفة القياسية لمقهاي.",
+    "pro":"السلام عليكم، أبغى أعرف أكثر عن باقة رشفة الاحترافية لمقهاي.",
+    "enterprise":"السلام عليكم، عندي أكثر من فرع وأبغى عرض سعر من رشفة.",
+    "offer":"السلام عليكم، أبغى أحجز عرض الإطلاق (شهرين مجاناً) لمقهاي.",
+    "default":"السلام عليكم، شفت موقع رشفة وأبغى عرضاً مجانياً للنظام في مقهاي."
+  };
+  var root = document.documentElement, themeBtn = document.getElementById("theme-btn");
+  function isDark(){ return root.getAttribute("data-theme") === "dark"; }
+  function applyTheme(t){
+    root.setAttribute("data-theme", t);
+    var dark = t === "dark";
+    themeBtn.setAttribute("aria-label", dark ? "تفعيل الوضع الفاتح" : "تفعيل الوضع الداكن");
+    themeBtn.title = dark ? "الوضع الفاتح" : "الوضع الداكن";
+  }
+  try { var saved = localStorage.getItem("rashfa-theme"); if (saved === "dark" || saved === "light") applyTheme(saved); } catch(e){}
+  if (root.getAttribute("data-theme") !== "dark") applyTheme("light");
+  themeBtn.addEventListener("click", function(){
+    var next = isDark() ? "light" : "dark";
+    applyTheme(next);
+    try { localStorage.setItem("rashfa-theme", next); } catch(e){}
+  });
+
+  function appLink(msg){ return "https://api.whatsapp.com/send?phone=" + NUMBER + "&text=" + encodeURIComponent(msg); }
+  function webLink(msg){ return "https://web.whatsapp.com/send?phone=" + NUMBER + "&text=" + encodeURIComponent(msg); }
+
+  var sheet = document.getElementById("sheet"), lastFocus = null;
+  function openSheet(msg){
+    document.getElementById("sheet-msg").textContent = "«" + msg + "»";
+    document.getElementById("wa-app").href = appLink(msg);
+    document.getElementById("wa-web").href = webLink(msg);
+    var box = document.getElementById("wa-qr");
+    try {
+      var q = qrcode(0, "M"); q.addData(appLink(msg)); q.make();
+      box.innerHTML = q.createSvgTag({cellSize:4, margin:0, scalable:true});
+      document.getElementById("sheet-qr").hidden = false;
+    } catch(e){ document.getElementById("sheet-qr").hidden = true; }
+    lastFocus = document.activeElement;
+    sheet.hidden = false;
+    document.getElementById("wa-app").focus();
+  }
+  function closeSheet(){ sheet.hidden = true; if (lastFocus) lastFocus.focus(); }
+  document.getElementById("sheet-close").addEventListener("click", closeSheet);
+  sheet.addEventListener("click", function(e){ if (e.target === sheet) closeSheet(); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && !sheet.hidden) closeSheet(); });
+
+  document.querySelectorAll("[data-wa]").forEach(function(a){
+    var msg = MESSAGES[a.getAttribute("data-wa")] || MESSAGES["default"];
+    a.href = appLink(msg);
+    a.addEventListener("click", function(e){ e.preventDefault(); openSheet(msg); });
+  });
+
+  function copyBtn(id, selectId){
+    var btn = document.getElementById(id);
+    btn.addEventListener("click", function(){
+      var done = function(){ btn.textContent = "تم النسخ"; setTimeout(function(){ btn.textContent = "نسخ الرقم"; }, 1800); };
+      var fallback = function(){
+        var el = selectId ? document.getElementById(selectId) : btn.previousElementSibling;
+        var r = document.createRange(); r.selectNodeContents(el);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = "الرقم محدد، انسخه";
+      };
+      try { navigator.clipboard.writeText("+96872288511").then(done, fallback); } catch(e){ fallback(); }
+    });
+  }
+  copyBtn("copy-phone", "phone-copy");
+  copyBtn("copy-phone-2");
+
+  var kds = document.getElementById("kds"), status = document.getElementById("demo-status"),
+      net = document.getElementById("net"), netLabel = document.getElementById("net-label"),
+      salesEl = document.getElementById("sales"), offline = false, sales = 0, count = 186, queued = 0;
+  function fmt(b){ return (b/1000).toFixed(3) + " ر.ع"; }
+  net.addEventListener("click", function(){
+    offline = !offline;
+    net.setAttribute("aria-pressed", String(offline));
+    netLabel.textContent = offline ? "الإنترنت مقطوع" : "الإنترنت متصل";
+    if (offline) { status.textContent = "انقطع الإنترنت. كمّل البيع، النظام يشتغل على شبكة المقهى."; }
+    else {
+      kds.querySelectorAll(".ticket.off").forEach(function(t){ t.classList.remove("off"); });
+      status.textContent = queued ? "رجع الإنترنت. تمت مزامنة " + queued + " طلب بدون أي فقد." : "الإنترنت متصل.";
+      queued = 0;
+    }
+  });
+  document.querySelectorAll(".menu-btns button").forEach(function(b){
+    b.addEventListener("click", function(){
+      var empty = kds.querySelector(".kds-empty"); if (empty) empty.remove();
+      count++; sales += Math.round(parseFloat(b.dataset.price) * 1000);
+      salesEl.textContent = fmt(sales);
+      var t = document.createElement("div"); t.className = "ticket" + (offline ? " off" : "");
+      var start = Date.now();
+      t.innerHTML = '<span class="t">#0' + count + '</span><b></b><span class="t" data-age>0 ث</span><button type="button">جاهز</button>';
+      t.querySelector("b").textContent = b.dataset.item;
+      t.querySelector("button").addEventListener("click", function(){ t.remove(); if (!kds.children.length) kds.innerHTML = '<div class="kds-empty">كل الطلبات جاهزة.</div>'; });
+      t._start = start;
+      kds.prepend(t);
+      if (offline) { queued++; status.textContent = "تم البيع وطباعة الفاتورة بدون إنترنت. " + queued + " طلب بانتظار المزامنة."; }
+      else status.textContent = "وصل الطلب للباريستا في أقل من ثانية.";
+    });
+  });
+  setInterval(function(){
+    kds.querySelectorAll(".ticket").forEach(function(t){
+      var s = Math.floor((Date.now() - t._start) / 1000);
+      t.querySelector("[data-age]").textContent = s + " ث";
+      t.classList.toggle("warn", s >= 8 && s < 16);
+      t.classList.toggle("late", s >= 16);
+    });
+  }, 1000);
+
+  var c = document.getElementById("qr"), x = c.getContext("2d"), n = 25, seed = 187;
+  function rnd(){ seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+  x.fillStyle = "#FBFAF6"; x.fillRect(0,0,n,n); x.fillStyle = "#1E1E1E";
+  function finder(px,py){ x.fillRect(px,py,7,7); x.fillStyle="#FBFAF6"; x.fillRect(px+1,py+1,5,5); x.fillStyle="#1E1E1E"; x.fillRect(px+2,py+2,3,3); }
+  for (var i=0;i<n;i++) for (var j=0;j<n;j++){
+    var inF = (i<8&&j<8)||(i>n-9&&j<8)||(i<8&&j>n-9);
+    if(!inF && rnd()>0.52) x.fillRect(i,j,1,1);
+  }
+  finder(0,0); finder(n-7,0); finder(0,n-7);
+})();
+</script>
+
+</body>
+</html>
